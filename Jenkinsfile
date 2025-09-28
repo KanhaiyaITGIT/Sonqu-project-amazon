@@ -18,7 +18,7 @@ pipeline {
         }
         stage('test') {
             steps {
-                sh "mvn mvn surefire-report:report"
+                sh "mvn surefire-report:report"
             }
         }
         stage('sonarqube analysis') {
