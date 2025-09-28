@@ -18,16 +18,16 @@ pipeline {
         }
         stage('test') {
             steps {
-                sh "mvn mvn surefire-report:report"
+                sh "mvn surefire-report:report"
             }
         }
-        stage(sonarqube analysis) {
+        stage('sonarqube analysis') {
             environment {
                 sonarHome = tool 'sonar-scanner-server'
             }
             steps {
                 withSonarQubeEnv('sonarqube-server') {
-                    sh "{sonarHome}/bin/sonar-scanner"
+                    sh "${sonarHome}/bin/sonar-scanner"
                 }
             }
         }
