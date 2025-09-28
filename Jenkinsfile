@@ -21,7 +21,7 @@ pipeline {
                 sh "mvn mvn surefire-report:report"
             }
         }
-        stage(sonarqube analysis) {
+        stage('sonarqube analysis') {
             environment {
                 sonarHome = tool 'sonar-scanner-server'
             }
